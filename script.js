@@ -38,4 +38,5 @@ if (typeof ScrollReveal !== 'undefined') {
     sr.reveal('.container', { delay: 500, origin: 'top' });
     sr.reveal('.product-grid', { delay: 100, origin: 'top' });
     sr.reveal('.product-card', { delay: 100, origin: 'top' });
+    sr.reveal('#main-video', { delay: 300, origin: 'left' });
 }

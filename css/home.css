@@ -398,6 +398,9 @@ section {
       align-items: center;
       gap: 10px;
     }
+    .icons{
+        display: none;
+    }
     .phone-text h1 {
         font-size: 45px;
     }
