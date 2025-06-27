@@ -368,6 +368,22 @@ section {
     section {
         padding: 70px 3% 60px; /* Üstten padding eklendi */
     }
+
+        /* YENİ EKLEME: Navigasyon linkleri için boşluğu ayarla */
+    .navlist {
+        margin: 0; /* Navlist'in kendi marginini kaldır */
+        flex-grow: 1; /* Esnekliği koru */
+        justify-content: flex-end; /* Navigasyonu sağa hizala */
+    }
+
+    .navlist li {
+        margin: 0 10px; /* Her link arasına daha az boşluk bırak */
+    }
+
+    .navlist a {
+        margin-left: 0; /* Önceki 60px'lik margin'i sıfırla */
+        font-size: 11px; /* Font boyutunu biraz küçült */
+    }
     .phone-text h1 {
         font-size: 45px;
     }
