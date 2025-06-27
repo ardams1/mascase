@@ -245,33 +245,31 @@ header {
   }
 
   .navlist {
-    position: fixed;
-    top: 70px; /* header yüksekliği */
-    right: -100%;
-    width: 250px;
-    height: 100vh;
-    background: white;
-    flex-direction: column;
-    padding-top: 20px;
-    transition: right 0.3s ease;
-    border-left: 1px solid #eee;
-    z-index: 10000;
-  }
+        position: absolute;
+        top: 100%; /* header'ın hemen altında başlasın */
+        right: -100%; /* başlangıçta ekranın dışında */
+        width: 250px;
+        height: 100vh;
+        background: #fdfdfd;
+        display: flex;
+        flex-direction: column; /* linkler alt alta gelsin */
+        justify-content: flex-start;
+        align-items: center;
+        padding-top: 30px;
+        transition: all .40s ease;
+        border-left: 1px solid #eee;
+    }
 
-  .navlist.open {
-    right: 0;
-  }
-
-  .navlist li {
-    margin: 15px 0;
-  }
-
-  .navlist a {
-    font-size: 16px;
-    margin-left: 0;
-    padding: 10px 20px;
-    display: block;
-  }
+    /* YENİ EKLENDİ: JavaScript ile .open class'ı eklendiğinde menü görünsün */
+    .navlist.open {
+        right: 0; /* Ekranın sağına yaslanarak görünsün */
+    }
+    
+    .navlist a {
+        display: block;
+        margin: 1.2rem 0;
+        font-size: 15px;
+    }
 
   .product-grid {
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
