@@ -1,24 +1,26 @@
 /* Scroll bar gizleme */
-
 /* Chrome, Safari, Edge */
 ::-webkit-scrollbar {
-  display: none;
+    display: none;
 }
 
 /* Firefox */
 body {
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
 
-
-body{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     font-family: "Noto Sans", sans-serif;
     list-style: none;
     text-decoration: none;
+}
+
+/* EKLEME: body'e arka plan rengi vererek tutarlılık sağlandı */
+body {
     background: white;
 }
 
@@ -31,17 +33,16 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 30px 50px;
+    padding: 30px 10%; /* DEĞİŞİKLİK: Sabit padding yerine yüzdesel padding daha esnektir */
     background: white;
+    transition: all .40s ease; /* EKLEME: Padding değişimini yumuşatır */
 }
 
-
-.logo{
+.logo {
     font-size: 30px;
     font-weight: 900;
     letter-spacing: 0;
     font-family: "Press Start 2P", system-ui;
-    font-optical-sizing: auto;
     font-style: normal;
     color: darkblue;
     filter: drop-shadow(10px 10px 20px rgba(0, 0, 0, 0.5));
@@ -50,7 +51,7 @@ header {
     flex-shrink: 0;
 }
 
-.logo:hover{
+.logo:hover {
     filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.7));
 }
 
@@ -63,11 +64,11 @@ header {
 }
 
 .navlist li {
-  display: inline-block;
-  margin-left: 25px;
+    display: inline-block;
+    margin-left: 25px;
 }
 
-.navlist a{
+.navlist a {
     display: inline-block;
     color: black;
     font-family: "Press Start 2P", system-ui;
@@ -77,90 +78,83 @@ header {
     transition: all .50s ease;
 }
 
-.navlist a:hover{
+.navlist a:hover {
     transform: translateY(-5px);
 }
 
 .nav-right {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-shrink: 0;
 }
 
 .cart-icon {
-  position: relative;
-  font-size: 24px;
-  color: black;
-  text-decoration: none;
-  transition: all 0.50s ease;
+    position: relative;
+    font-size: 24px;
+    color: black;
+    text-decoration: none;
+    transition: all 0.50s ease;
 }
 
-.cart-icon:hover{
-  transform: translateY(-5px);
+.cart-icon:hover {
+    transform: translateY(-5px);
 }
 
 #cart-count {
-  color: white;
-  font-size: 11px;
-  border-radius: 50%;
-  padding: 2px 6px;
-  position: absolute;
-  top: -8px;
-  right: -10px;
+    color: white;
+    background-color: darkblue; /* EKLEME: Sepet sayısına arkaplan rengi eklendi */
+    font-size: 11px;
+    border-radius: 50%;
+    padding: 2px 6px;
+    position: absolute;
+    top: -8px;
+    right: -10px;
 }
 
-.login-btn {
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 24px;
-  color: black;
-  padding: 6px 12px;
-  border-radius: 5px;
-  transition: all 0.50s ease;
+.user-button-container i {
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 24px;
+    color: black;
+    padding: 6px 12px;
+    border-radius: 5px;
+    transition: all 0.50s ease;
+    cursor: pointer; /* EKLEME */
 }
 
-.login-btn:hover {
-  transform: translateY(-5px);
+.user-button-container i:hover {
+    transform: translateY(-5px);
 }
 
-#menu-icon{
+#menu-icon {
     color: black;
     font-size: 35px;
     z-index: 10001;
     cursor: pointer;
-    display: none;
+    display: none; /* Başlangıçta gizli */
 }
 
-
-/* Ana yapı */
-body {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: transparent;
-  margin: 0;
-  padding: 0;
-  color: #333;
-}
-
-/* Ürün kartları grid yapısı */
+/* Ürünler grid yapısı */
 .product-grid {
+  max-width: 1200px;
+  margin: 110px auto 50px; /* Header sabit olduğundan üst boşluk */
+  padding: 0 5%;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 20px;
-  padding: 40px;
-  max-width: 1200px;
-  margin: 0 auto;
 }
 
-/* Ürün kartı */
+/* Ürün kartları */
 .product-card {
   background-color: #fff;
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
   overflow: hidden;
   text-align: center;
-  padding: 110px;
+  padding: 30px;
   transition: transform 0.2s ease;
+  margin-top: 110px;
 }
 
 .product-card:hover {
@@ -169,9 +163,8 @@ body {
 
 .product-card img {
   width: 100%;
-  height: auto;
-  object-fit: contain;
   max-height: 200px;
+  object-fit: contain;
   border-radius: 12px;
   margin-bottom: 15px;
 }
@@ -196,11 +189,10 @@ body {
   display: block;
 }
 
-/* Sepete Ekle butonu */
 .add-to-cart-btn {
   margin-top: 15px;
   background-color: black;
-  color: #fff;
+  color: white;
   border: none;
   padding: 10px 20px;
   font-size: 15px;
@@ -213,15 +205,108 @@ body {
   background-color: #333;
 }
 
-/* Mobil uyumluluk */
-@media screen and (max-width: 768px) {
-  .product-grid {
-    padding: 20px;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  }
+/* Responsive - Tablet ve Mobil */
 
-  .product-card {
-    padding: 15px;
+@media (max-width: 1280px) {
+  header {
+    padding: 20px 5%;
+  }
+  .navlist {
+    margin: 0 15px;
+  }
+  .navlist a {
+    font-size: 12px;
+    margin-left: 30px;
+  }
+  .product-grid {
+    max-width: 1000px;
   }
 }
 
+@media (max-width: 992px) {
+  header {
+    padding: 15px 4%;
+  }
+  .navlist {
+    margin: 0 10px;
+  }
+  .navlist a {
+    font-size: 11px;
+    margin-left: 20px;
+  }
+  .product-grid {
+    max-width: 720px;
+  }
+}
+
+@media (max-width: 768px) {
+  #menu-icon {
+    display: block;
+  }
+
+  .navlist {
+    position: fixed;
+    top: 70px; /* header yüksekliği */
+    right: -100%;
+    width: 250px;
+    height: 100vh;
+    background: white;
+    flex-direction: column;
+    padding-top: 20px;
+    transition: right 0.3s ease;
+    border-left: 1px solid #eee;
+    z-index: 10000;
+  }
+
+  .navlist.open {
+    right: 0;
+  }
+
+  .navlist li {
+    margin: 15px 0;
+  }
+
+  .navlist a {
+    font-size: 16px;
+    margin-left: 0;
+    padding: 10px 20px;
+    display: block;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    padding: 20px 5%;
+    margin-top: 90px;
+  }
+
+  .product-card {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 12px 3%;
+  }
+
+  .logo {
+    font-size: 24px;
+  }
+
+  .product-grid {
+    padding: 10px 3%;
+  }
+
+  .product-card h3 {
+    font-size: 16px;
+  }
+
+  .product-card p {
+    font-size: 14px;
+  }
+
+  .add-to-cart-btn {
+    padding: 8px 15px;
+    font-size: 14px;
+  }
+}
