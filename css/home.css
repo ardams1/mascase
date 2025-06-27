@@ -343,20 +343,18 @@ section {
 /* =========== RESPONSIVE MEDIA QUERIES ============== */
 /* =================================================== */
 
-
 /* ---- Geniş Tablet ve Küçük Laptop Ekranlar ---- */
 @media (max-width: 1280px) {
     header {
         padding: 20px 5%;
     }
-    .navlist{
+    .navlist {
         margin: 0 15px;
     }
-    .navlist a{
+    .navlist a {
         font-size: 12px;
         margin-left: 30px;
     }
-
     section {
         padding: 0 8%;
     }
@@ -371,62 +369,84 @@ section {
 /* ---- Tablet Ekranlar ---- */
 @media (max-width: 992px) {
     header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
         padding: 15px 4%;
-    }
-    section {
-        padding: 70px 3% 60px; /* Üstten padding eklendi */
+        gap: 10px;
     }
 
-        /* YENİ EKLEME: Navigasyon linkleri için boşluğu ayarla */
+    .logo {
+        margin-right: auto;
+        flex-shrink: 0;
+    }
+
     .navlist {
-        padding: 0 10px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        flex-grow: 1;
+        margin: 0;
+        padding: 0;
+        gap: 16px;
     }
 
     .navlist a {
-        margin-left: 20px; /* Önceki 60px'lik margin'i sıfırla */
-        font-size: 11px; /* Font boyutunu biraz küçült */
+        margin: 0;
+        font-size: 11px;
     }
-    .nav-right{
-      margin-left: auto;
-      display: flex;
-      align-items: center;
-      gap: 10px;
+
+    .nav-right {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        flex-shrink: 0;
+        gap: 10px;
     }
-    .icons{
+
+    section {
+        padding: 70px 3% 60px;
+    }
+
+    .icons {
         display: none;
     }
+
     .phone-text h1 {
         font-size: 45px;
     }
+
     .phone-img {
-        text-align: center; /* Resmi ortalamak için */
+        text-align: center;
     }
+
     .phone-img img {
         width: 350px;
         margin: 0;
     }
-    #main-video video{
+
+    #main-video video {
         height: 300px;
     }
 }
 
-
 /* ---- Mobil Menünün Görünüşü (En Önemli Kısım) ---- */
 @media (max-width: 768px) {
     #menu-icon {
-        display: block; /* Hamburger ikonu görünür olsun */
+        display: block;
     }
 
-    /* YENİ EKLENDİ: Açılacak menünün stilleri */
     .navlist {
         position: absolute;
-        top: 100%; /* header'ın hemen altında başlasın */
-        right: -100%; /* başlangıçta ekranın dışında */
+        top: 100%;
+        right: -100%;
         width: 250px;
         height: 100vh;
         background: #fdfdfd;
         display: flex;
-        flex-direction: column; /* linkler alt alta gelsin */
+        flex-direction: column;
         justify-content: flex-start;
         align-items: center;
         padding-top: 30px;
@@ -434,55 +454,51 @@ section {
         border-left: 1px solid #eee;
     }
 
-    /* YENİ EKLENDİ: JavaScript ile .open class'ı eklendiğinde menü görünsün */
     .navlist.open {
-        right: 0; /* Ekranın sağına yaslanarak görünsün */
+        right: 0;
     }
-    
+
     .navlist a {
         display: block;
         margin: 1.2rem 0;
         font-size: 15px;
     }
-    /* MOBİL MENÜ SONU */
 
-
-    /* DİĞER MOBİL AYARLARI */
     .phone {
-        grid-template-columns: 1fr; /* Sütunlar alt alta */
+        grid-template-columns: 1fr;
         text-align: center;
         gap: 1rem;
     }
 
     .icons {
-        display: none; /* Kenardaki ikonlar mobilde karışıklık yapmasın, gizlendi */
+        display: none;
     }
-    
-    .scroll-down{
-        display: none; /* Bu da gizlendi */
+
+    .scroll-down {
+        display: none;
     }
 
     .phone-text {
-        text-align: center !important; /* DÜZELTME: Metin hizalamasını ortala */
+        text-align: center !important;
         padding-top: 50px;
-        display: block; /* Flex yerine block yaparak hizalamayı daha kolay kontrol edebiliriz */
+        display: block;
     }
-    
+
     .phone-text h1 {
         font-size: 40px;
     }
-    
+
     .phone-text p {
         font-size: 11px;
     }
 
-    #main-video video  {
-        height: auto; /* Yükseklik otomatik ayarlansın */
+    #main-video video {
+        height: auto;
     }
 
     .footer-container {
         flex-direction: column;
-        align-items: center; /* Ortalanmış görünüm daha iyi */
+        align-items: center;
         text-align: center;
     }
 
@@ -491,7 +507,7 @@ section {
     }
 
     .footer-social {
-        justify-content: center; /* Sosyal ikonlar da ortalansın */
+        justify-content: center;
     }
 }
 
@@ -507,16 +523,14 @@ section {
         font-size: 32px;
     }
     .phone-text p {
-        /* DÜZELTME: 9px çok küçük, okunabilirlik için 11px'e çıkarıldı */
-        font-size: 11px; 
+        font-size: 11px;
         letter-spacing: 1px;
     }
-    .phone-img img{
-        width: 100%; /* Ekran genişliğine tam sığsın */
+    .phone-img img {
+        width: 100%;
         max-width: 280px;
     }
-
-    #main-video video{
+    #main-video video {
         height: 200px;
     }
 }
