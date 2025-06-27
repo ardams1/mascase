@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Giriş Yap - MasCase</title>
+  <link rel="stylesheet" href="../css/login.css" />
+</head>
+<body>
+
+  <div class="auth-container">
+    <form id="loginForm" class="auth-form">
+      <h2>Giriş Yap</h2>
+
+      <input type="email" id="email" name="email" placeholder="E-posta" required />
+      <input type="password" id="sifre" name="sifre" placeholder="Şifre" required />
+      <button type="submit">Giriş Yap</button>
+
+      <p class="auth-footer-text">
+        Hesabınız yok mu? <a href="../pages/register.html">Kayıt Ol</a>
+      </p>
+
+      <div id="message"></div>
+    </form>
+  </div>
+
+  <script>
+  const form = document.getElementById('loginForm');
+  const messageDiv = document.getElementById('message');
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const email = document.getElementById('email').value.trim();
+    const sifre = document.getElementById('sifre').value;
+
+    if (!email || !sifre) {
+      messageDiv.textContent = "Lütfen tüm alanları doldurun.";
+      messageDiv.className = 'error';
+      return;
+    }
+
+    let kullanicilar = JSON.parse(localStorage.getItem('kullanicilar')) || [];
+
+    const kullanici = kullanicilar.find(k => k.email === email && k.sifre === sifre);
+
+    if (kullanici) {
+      messageDiv.textContent = "Giriş başarılı! Yönlendiriliyorsunuz...";
+      messageDiv.className = 'success';
+
+      // ✅ Giriş bilgilerini sakla
+      localStorage.setItem('isLoggedIn', 'true');
+      localStorage.setItem('currentUserEmail', kullanici.email);
+      localStorage.setItem('currentUserAd', kullanici.ad);
+
+      setTimeout(() => {
+        window.location.href = '../index.html';
+      }, 1500);
+    } else {
+      messageDiv.textContent = "E-posta veya şifre hatalı.";
+      messageDiv.className = 'error';
+    }
+  });
+</script>
+
+
+</body>
+</html>

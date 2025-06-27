@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Modern Yorumlar</title>
+  <link rel="stylesheet" href="../css/yorumlar.css" />
+</head>
+<body>
+    <!---remixicons link--->
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+    rel="stylesheet"/>
+
+    
+<button id="backBtn" aria-label="Geri">
+    <i class="ri-arrow-left-line"></i>
+  </button>
+
+
+
+  <main class="container">
+    <h1 class="title">Müşteri Yorumları</h1>
+
+    <form id="yorumForm" class="yorum-form">
+      <div class="input-group">
+        <input type="text" id="isim" placeholder="Adınız" required autocomplete="off" />
+      </div>
+      <div class="input-group">
+        <textarea id="yorum" rows="4" placeholder="Yorumunuzu yazın..." required></textarea>
+      </div>
+      <button type="submit" class="btn">Gönder</button>
+    </form>
+
+    <section id="yorumListesi" class="yorum-listesi">
+      <article class="yorum-kart">
+        <div class="yorum-header">
+          <div class="avatar">A</div>
+          <div>
+            <h3>Ayşe K.</h3>
+            <time datetime="2025-06-14">14 Haziran 2025</time>
+          </div>
+        </div>
+        <p>Ürün çok kaliteli, teslimat hızlı ve sorunsuzdu. Teşekkürler!</p>
+      </article>
+
+      <article class="yorum-kart">
+        <div class="yorum-header">
+          <div class="avatar">M</div>
+          <div>
+            <h3>Mehmet T.</h3>
+            <time datetime="2025-06-12">12 Haziran 2025</time>
+          </div>
+        </div>
+        <p>Paketleme çok özenliydi. Kesinlikle tavsiye ederim.</p>
+      </article>
+    </section>
+  </main>
+
+  <script>
+    const form = document.getElementById('yorumForm');
+    const yorumListesi = document.getElementById('yorumListesi');
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+
+      const isimInput = document.getElementById('isim');
+      const yorumInput = document.getElementById('yorum');
+
+      const isim = isimInput.value.trim();
+      const yorum = yorumInput.value.trim();
+      if (!isim || !yorum) return;
+
+      // Avatar harfi (ilk harf büyük)
+      const avatar = isim.charAt(0).toUpperCase();
+
+      // Bugünün tarihi
+      const tarih = new Date();
+      const tarihStr = tarih.toLocaleDateString('tr-TR', {
+        day: '2-digit',
+        month: 'long',
+        year: 'numeric',
+      });
+
+      // Yeni yorum kartı oluştur
+      const yorumKart = document.createElement('article');
+      yorumKart.classList.add('yorum-kart');
+      yorumKart.innerHTML = `
+        <div class="yorum-header">
+          <div class="avatar">${avatar}</div>
+          <div>
+            <h3>${isim}</h3>
+            <time datetime="${tarih.toISOString().split('T')[0]}">${tarihStr}</time>
+          </div>
+        </div>
+        <p>${yorum}</p>
+      `;
+
+      // Yeni yorumu en üste ekle
+      yorumListesi.prepend(yorumKart);
+
+      // Formu temizle
+      form.reset();
+    });
+  </script>
+
+  <script>
+    document.getElementById('backBtn').addEventListener('click', () => {
+  window.history.back();
+});
+
+  </script>
+
+
+ 
+</body>
+</html>

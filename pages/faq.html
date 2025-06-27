@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!---CUSTOM CSS-->
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/faq.css">
+    <title>MasCase</title>
+
+
+    <!---boxicons link--->
+    <link rel="stylesheet"
+  href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+    <!---remixicons link--->
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+    rel="stylesheet"/> 
+    
+</head>
+<body>
+    
+    <header>
+  <a href="../" class="logo">MASCASE</a>
+
+  <ul class="navlist">
+      <li><a href="../">ANASAYFA</a></li>
+      <li><a href="../pages/koleksiyon.html">KOLEKSİYON</a></li>
+      <li><a href="../pages/hakkimizda.html">HAKKIMIZDA</a></li>
+      <li><a href="#">YORUMLAR</a></li>
+  </ul>
+
+  <div class="nav-right">
+    <a href="../pages/sepet.html" class="cart-icon"><i class="ri-shopping-bag-2-line"></i><span id="cart-count">0</span></a>
+    <a href="../pages/login.html" class="login-btn"><i class="ri-user-line"></i></a>
+  </div>
+   <div id="menu-icon" class="bx bx-menu"></div>
+</header>
+
+    <div class="faq-section">
+    <h1>Sıkça Sorulan Sorular</h1>
+
+    <div class="faq-item">
+      <div class="faq-question">İademi nasıl yaparım?</div>
+      <div class="faq-answer">
+        Ürünün orijinal kutusu/ambalajı bozulmamış olmalı. Aşağıdaki link üzerinden “İade & Değişim” formu oluşturmanız gerekmektedir.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">İade sonrası geri ödeme ne zaman yapılır?</div>
+      <div class="faq-answer">
+        Ürün elimize ulaştıktan sonra kontrol edilir ve 2 iş günü içinde geri ödeme yapılır.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Ürünü nasıl değiştiririm?</div>
+      <div class="faq-answer">
+        “İade & Değişim” formu doldurarak ürün değişimi talep edebilirsiniz. Kargo ücreti şartlara göre müşteriye ait olabilir.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Kişisel verilerim korunuyor mu?</div>
+      <div class="faq-answer">
+        Evet. 256-bit SSL şifreleme ve 3D Secure ödeme altyapısı kullanılmaktadır.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Mağazanız var mı?</div>
+      <div class="faq-answer">
+        Yok.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Kurumsal satış yapıyor musunuz?</div>
+      <div class="faq-answer">
+        Evet. mascase@gmail.com adresinden iletişime geçebilirsiniz.
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    document.querySelectorAll('.faq-question').forEach(q => {
+      q.addEventListener('click', () => {
+        const parent = q.parentElement;
+        parent.classList.toggle('active');
+        document.querySelectorAll('.faq-item').forEach(i => {
+          if (i !== parent) i.classList.remove('active');
+        });
+      });
+    });
+  </script>
+
+
+    <footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-column">
+      <h4>Bilgiler</h4>
+      <ul>
+        <li><a href="../pages/satissozlesmesi.html">Mesafeli Satış Sözleşmesi</a></li>
+        <li><a href="../pages/gizlilikilkeleri.html">Gizlilik İlkeleri</a></li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h4>Müşteri Hizmetleri</h4>
+      <ul>
+        <li><a href="../pages/faq.html">Sıkça Sorulan Sorular</a></li>
+        <li><a href="#">Siparişimi Sorgula</a></li>
+        <li><a href="#">İade & Değişim</a></li>
+        <li><a href="#">İletişim</a></li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h4>Hesabım</h4>
+      <ul>
+        <li><a href="../pages/register.html">Hesabım</a></li>
+        <li><a href="#">Siparişlerim</a></li>
+      </ul>
+    </div>
+    <div class="footer-column newsletter">
+      <h4>Kampanyalardan Haberdar Ol!</h4>
+      <form>
+        <input type="email" placeholder="E-posta">
+        <button type="submit">→</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="footer-social">
+    <a href="#"><i class="ri-twitter-fill"></i></a>
+    <a href="#"><i class="ri-facebook-fill"></i></a>
+    <a href="#"><i class="ri-instagram-line"></i></a>
+    <a href="#"><i class="ri-tiktok-fill"></i></a>
+    <a href="#"><i class="ri-youtube-fill"></i></a>
+  </div>
+</footer>
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <script src="../script.js"></script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Sepet Sayfası</title>
+<link rel="stylesheet" href="../css/sepet.css" />
+
+</head>
+<body>
+
+        <!---remixicons link--->
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+    rel="stylesheet"/>
+
+<button id="backBtn" aria-label="Geri">
+    <i class="ri-arrow-left-line"></i>
+  </button>
+
+<div class="cart-container">
+  <h1>Sepetiniz</h1>
+  <div id="cart-items"></div>
+
+  <div class="coupon-section">
+    <input type="text" id="coupon-code" placeholder="Kupon kodu girin" />
+    <button id="apply-coupon-btn">Kuponu Uygula</button>
+    <p id="coupon-message"></p>
+  </div>
+
+  <div class="summary">
+    <div>
+      <span>Ara Toplam:</span>
+      <span id="subtotal-price">0</span> ₺
+    </div>
+    <div>
+      <span>İndirim:</span>
+      <span id="discount-amount">0</span> ₺
+    </div>
+    <div class="total">
+      <span>Genel Toplam:</span>
+      <span id="total-price">0</span> ₺
+    </div>
+  </div>
+
+  <button class="checkout-btn" id="checkout-btn">Ödemeye Git</button>
+</div>
+
+
+<script>
+    document.getElementById('backBtn').addEventListener('click', () => {
+  window.history.back();
+});
+
+  </script>
+
+
+<script src="../sepet.js"></script>
+
+
+</body>
+</html>

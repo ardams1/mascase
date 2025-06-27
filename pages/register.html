@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="../css/register.css">
+  <title>Kayıt Ol - Basit Demo</title>
+</head>
+<body>
+
+  <div class="auth-container">
+    <form id="registerForm" class="auth-form">
+      <h2>Hesap Oluştur</h2>
+
+      <input type="text" id="ad" name="ad" placeholder="Ad Soyad" required />
+      <input type="email" id="email" name="email" placeholder="E-posta" required />
+      <input type="password" id="sifre" name="sifre" placeholder="Şifre" required />
+      <button type="submit">Kayıt Ol</button>
+
+      <p class="auth-footer-text">
+        Zaten hesabınız var mı? <a href="../pages/login.html">Giriş Yap</a>
+      </p>
+
+      <div id="message"></div>
+    </form>
+  </div>
+
+  <script>
+  const form = document.getElementById('registerForm');
+  const messageDiv = document.getElementById('message');
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const ad = document.getElementById('ad').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const sifre = document.getElementById('sifre').value;
+
+    if (!ad || !email || !sifre) {
+      messageDiv.textContent = "Lütfen tüm alanları doldurun.";
+      messageDiv.className = 'error';
+      return;
+    }
+
+    let kullanicilar = JSON.parse(localStorage.getItem('kullanicilar')) || [];
+
+    if (kullanicilar.find(k => k.email === email)) {
+      messageDiv.textContent = "Bu e-posta zaten kayıtlı.";
+      messageDiv.className = 'error';
+      return;
+    }
+
+    kullanicilar.push({ ad, email, sifre });
+    localStorage.setItem('kullanicilar', JSON.stringify(kullanicilar));
+
+    messageDiv.textContent = "Kayıt başarılı! Yönlendiriliyorsunuz...";
+    messageDiv.className = 'success';
+
+    form.reset();
+
+    setTimeout(() => {
+      window.location.href = '../index.html';
+    }, 1500);
+  });
+</script>
+
+
+</body>
+</html>

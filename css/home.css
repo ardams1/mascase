@@ -1,0 +1,491 @@
+/* Scroll bar gizleme */
+/* Chrome, Safari, Edge */
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* Firefox */
+body {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Noto Sans", sans-serif;
+    list-style: none;
+    text-decoration: none;
+}
+
+/* EKLEME: body'e arka plan rengi vererek tutarlılık sağlandı */
+body {
+    background: white;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 10%; /* DEĞİŞİKLİK: Sabit padding yerine yüzdesel padding daha esnektir */
+    background: white;
+    transition: all .40s ease; /* EKLEME: Padding değişimini yumuşatır */
+}
+
+.logo {
+    font-size: 30px;
+    font-weight: 900;
+    letter-spacing: 0;
+    font-family: "Press Start 2P", system-ui;
+    font-style: normal;
+    color: darkblue;
+    filter: drop-shadow(10px 10px 20px rgba(0, 0, 0, 0.5));
+    transition: filter 0.3s ease;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.logo:hover {
+    filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.7));
+}
+
+.navlist {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    flex: 1;
+    margin: 0 30px;
+}
+
+.navlist li {
+    display: inline-block;
+    margin-left: 25px;
+}
+
+.navlist a {
+    display: inline-block;
+    color: black;
+    font-family: "Press Start 2P", system-ui;
+    margin-left: 60px;
+    font-size: 12.5px;
+    font-weight: 600;
+    transition: all .50s ease;
+}
+
+.navlist a:hover {
+    transform: translateY(-5px);
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-shrink: 0;
+}
+
+.cart-icon {
+    position: relative;
+    font-size: 24px;
+    color: black;
+    text-decoration: none;
+    transition: all 0.50s ease;
+}
+
+.cart-icon:hover {
+    transform: translateY(-5px);
+}
+
+#cart-count {
+    color: white;
+    background-color: darkblue; /* EKLEME: Sepet sayısına arkaplan rengi eklendi */
+    font-size: 11px;
+    border-radius: 50%;
+    padding: 2px 6px;
+    position: absolute;
+    top: -8px;
+    right: -10px;
+}
+
+.user-button-container i {
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 24px;
+    color: black;
+    padding: 6px 12px;
+    border-radius: 5px;
+    transition: all 0.50s ease;
+    cursor: pointer; /* EKLEME */
+}
+
+.user-button-container i:hover {
+    transform: translateY(-5px);
+}
+
+#menu-icon {
+    color: black;
+    font-size: 35px;
+    z-index: 10001;
+    cursor: pointer;
+    display: none; /* Başlangıçta gizli */
+}
+
+
+/* ---- Ana Bölüm ---- */
+.phone {
+    height: 100%;
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    gap: 2rem;
+}
+
+section {
+    padding: 0 12%; /* DEĞİŞİKLİK: Padding biraz azaltıldı, daha iyi oran */
+    transition: all .40s ease;
+}
+
+.phone-text {
+    text-align: left !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* EKLEME: Metin bloğunun maksimum genişliğini sınırla */
+    max-width: 500px; /* veya ihtiyacına göre başka bir değer */
+}
+
+.phone-text h4 {
+    font-family: "Press Start 2P", system-ui;
+    font-size: 15px;
+    font-weight: 400;
+    color: black;
+    margin-bottom: 25px;
+    letter-spacing: 0.5px;
+}
+
+.phone-text h1 {
+    font-family: "Press Start 2P", system-ui;
+    font-size: 65px;
+    line-height: 1;
+    letter-spacing: 1px;
+    color: black;
+    margin: 0 0 30px;
+}
+
+.phone-text p {
+    font-family: "Press Start 2P", system-ui;
+    color: black;
+    font-size: 12px;
+    line-height: 1.9;
+    letter-spacing: 1.5px;
+    margin-bottom: 40px;
+}
+
+.phone-img img {
+    width: 430px;
+    max-width: 100%; /* EKLEME: Resimlerin taşmasını önler */
+    height: auto;
+    margin-left: 10px;
+    margin-bottom: -40px;
+    border-radius: 20px;
+    filter: drop-shadow(10px 10px 20px rgba(0, 0, 0, 0.5));
+    transition: filter 0.3s ease;
+}
+
+.phone-img img:hover {
+    filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.7));
+}
+
+.icons {
+    position: absolute;
+    top: 50%;
+    padding: 0 7%; /* DEĞİŞİKLİK: Padding ayarlandı */
+    transform: translateY(-50%);
+}
+
+.icons i {
+    display: block;
+    margin: 26px 0;
+    font-size: 30px;
+    color: black;
+    transition: all .50s ease;
+}
+
+.icons i:hover {
+    color: black;
+    transform: translateY(-5px);
+}
+
+.scroll-down {
+    position: absolute;
+    bottom: 6%;
+    right: 7%; /* DEĞİŞİKLİK: Padding ile uyumlu hale getirildi */
+}
+
+.scroll-down i {
+    display: block;
+    padding: 12px;
+    font-size: 25px;
+    color: white;
+    background: black;
+    border-radius: 30px;
+    transition: all .50s ease;
+}
+
+.scroll-down i:hover {
+    transform: translateY(-5px);
+}
+
+
+/* ---- Diğer Bölümler ---- */
+
+.main-photo {
+    margin-top: 70px;
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.main-photo img {
+    width: 100%;
+    height: 650px;
+    object-fit: cover; /* EKLEME: Resmin orantısını bozmadan alanı kaplamasını sağlar */
+}
+
+.site-footer {
+    background-color: #fff;
+    padding: 40px 10%; /* DEĞİŞİKLİK: Yüzdesel padding */
+    border-top: 1px solid #eee;
+    font-family: "Noto Sans", sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.footer-column h4 {
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.footer-column ul {
+    padding: 0;
+    list-style: none;
+}
+
+.footer-column ul li {
+    margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+    color: #000;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer-column ul li a:hover {
+    text-decoration: underline;
+}
+
+.newsletter form {
+    display: flex;
+    border: 1px solid #000;
+    margin-top: 10px;
+}
+
+.newsletter input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+}
+
+.newsletter button {
+    padding: 0 15px;
+    border: none;
+    background: transparent;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.footer-social {
+    margin-top: 30px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+}
+
+.footer-social a {
+    font-size: 20px;
+    color: #000;
+    text-decoration: none;
+}
+
+.footer-social a:hover {
+    color: #555;
+}
+
+
+/* =================================================== */
+/* =========== RESPONSIVE MEDIA QUERIES ============== */
+/* =================================================== */
+
+
+/* ---- Geniş Tablet ve Küçük Laptop Ekranlar ---- */
+@media (max-width: 1280px) {
+    header {
+        padding: 15px 5%;
+    }
+    section {
+        padding: 0 8%;
+    }
+    .icons {
+        padding: 0 5%;
+    }
+    .scroll-down {
+        right: 5%;
+    }
+}
+
+/* ---- Tablet Ekranlar ---- */
+@media (max-width: 992px) {
+    header {
+        padding: 15px 3%;
+    }
+    section {
+        padding: 70px 3% 60px; /* Üstten padding eklendi */
+    }
+    .phone-text h1 {
+        font-size: 45px;
+    }
+    .phone-img {
+        text-align: center; /* Resmi ortalamak için */
+    }
+    .phone-img img {
+        width: 350px;
+        margin: 0;
+    }
+    .main-photo img {
+        height: 450px;
+    }
+}
+
+
+/* ---- Mobil Menünün Görünüşü (En Önemli Kısım) ---- */
+@media (max-width: 768px) {
+    #menu-icon {
+        display: block; /* Hamburger ikonu görünür olsun */
+    }
+
+    /* YENİ EKLENDİ: Açılacak menünün stilleri */
+    .navlist {
+        position: absolute;
+        top: 100%; /* header'ın hemen altında başlasın */
+        right: -100%; /* başlangıçta ekranın dışında */
+        width: 250px;
+        height: 100vh;
+        background: #fdfdfd;
+        display: flex;
+        flex-direction: column; /* linkler alt alta gelsin */
+        justify-content: flex-start;
+        align-items: center;
+        padding-top: 30px;
+        transition: all .40s ease;
+        border-left: 1px solid #eee;
+    }
+
+    /* YENİ EKLENDİ: JavaScript ile .open class'ı eklendiğinde menü görünsün */
+    .navlist.open {
+        right: 0; /* Ekranın sağına yaslanarak görünsün */
+    }
+    
+    .navlist a {
+        display: block;
+        margin: 1.2rem 0;
+        font-size: 15px;
+    }
+    /* MOBİL MENÜ SONU */
+
+
+    /* DİĞER MOBİL AYARLARI */
+    .phone {
+        grid-template-columns: 1fr; /* Sütunlar alt alta */
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .icons {
+        display: none; /* Kenardaki ikonlar mobilde karışıklık yapmasın, gizlendi */
+    }
+    
+    .scroll-down{
+        display: none; /* Bu da gizlendi */
+    }
+
+    .phone-text {
+        text-align: center !important; /* DÜZELTME: Metin hizalamasını ortala */
+        padding-top: 50px;
+        display: block; /* Flex yerine block yaparak hizalamayı daha kolay kontrol edebiliriz */
+    }
+    
+    .phone-text h1 {
+        font-size: 40px;
+    }
+    
+    .phone-text p {
+        font-size: 11px;
+    }
+
+    .main-photo img {
+        height: auto; /* Yükseklik otomatik ayarlansın */
+    }
+
+    .footer-container {
+        flex-direction: column;
+        align-items: center; /* Ortalanmış görünüm daha iyi */
+        text-align: center;
+    }
+
+    .newsletter form {
+        justify-content: center;
+    }
+
+    .footer-social {
+        justify-content: center; /* Sosyal ikonlar da ortalansın */
+    }
+}
+
+/* ---- Küçük Mobil Telefonlar ---- */
+@media (max-width: 480px) {
+    header {
+        padding: 12px 3%;
+    }
+    .logo {
+        font-size: 24px;
+    }
+    .phone-text h1 {
+        font-size: 32px;
+    }
+    .phone-text p {
+        /* DÜZELTME: 9px çok küçük, okunabilirlik için 11px'e çıkarıldı */
+        font-size: 11px; 
+        letter-spacing: 1px;
+    }
+    .phone-img img{
+        width: 100%; /* Ekran genişliğine tam sığsın */
+        max-width: 280px;
+    }
+}

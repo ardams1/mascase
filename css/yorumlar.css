@@ -1,0 +1,170 @@
+/* Genel Stil */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f0f2f5;
+  color: #333;
+  line-height: 1.6;
+}
+
+#backBtn {
+  position: fixed;
+  top: 30px;
+  left: 30px;
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  font-family: "Press Start 2P", system-ui;
+  color: black;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  z-index: 1000;
+  transition: color 0.3s ease;
+}
+
+#backBtn:hover {
+  color: #333;
+}
+
+.container {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 0 15px;
+}
+
+.title {
+  font-family: "Lora", serif;
+  text-align: center;
+  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #222;
+}
+
+/* Form Stilleri */
+.yorum-form {
+  background: #fff;
+  padding: 20px 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgb(0 0 0 / 0.1);
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.input-group input,
+.input-group textarea {
+  width: 100%;
+  border: 1.5px solid #ccc;
+  border-radius: 10px;
+  padding: 12px 1px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+  resize: vertical;
+  font-family: inherit;
+}
+
+.input-group input:focus,   
+.input-group textarea:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.btn {
+  background-color: black;
+  border: none;
+  padding: 14px 0;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.25s ease-in-out;
+}
+
+.btn:hover {
+  background-color: #333;
+}
+
+/* Yorum Kartları */
+.yorum-listesi {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.yorum-kart {
+  background: #fff;
+  padding: 20px 25px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 0.08);
+  transition: box-shadow 0.3s ease;
+}
+
+.yorum-kart:hover {
+  box-shadow: 0 6px 18px rgb(0 0 0 / 0.15);
+}
+
+.yorum-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 12px;
+}
+
+.avatar {
+  background: #007bff;
+  color: white;
+  font-weight: 700;
+  font-size: 1.5rem;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+}
+
+.yorum-header h3 {
+  margin: 0;
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: #222;
+}
+
+.yorum-header time {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.yorum-kart p {
+  margin: 0;
+  font-size: 1rem;
+  color: #444;
+  white-space: pre-line;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .container {
+    margin: 20px 15px;
+  }
+
+  .yorum-form {
+    padding: 15px 20px;
+  }
+
+  .yorum-kart {
+    padding: 15px 20px;
+  }
+
+  .avatar {
+    width: 40px;
+    height: 40px;
+    font-size: 1.25rem;
+  }
+}
