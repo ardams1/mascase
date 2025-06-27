@@ -385,12 +385,12 @@ section {
     }
 
     .navlist li {
-        margin: 5px 10px; /* Her link arasına daha az boşluk bırak */
+        margin: 0 8px; /* Her link arasına daha az boşluk bırak */
     }
 
     .navlist a {
-        margin-left: 0; /* Önceki 60px'lik margin'i sıfırla */
-        font-size: 11px; /* Font boyutunu biraz küçült */
+        margin-left: 15px; /* Önceki 60px'lik margin'i sıfırla */
+        font-size: 12px; /* Font boyutunu biraz küçült */
     }
     .nav-right{
       margin-left: auto;
