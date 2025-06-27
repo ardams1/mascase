@@ -347,8 +347,16 @@ section {
 /* ---- Geniş Tablet ve Küçük Laptop Ekranlar ---- */
 @media (max-width: 1280px) {
     header {
-        padding: 15px 5%;
+        padding: 20px 5%;
     }
+    .navlist{
+        margin: 0 15px;
+    }
+    .navlist a{
+        font-size: 12px;
+        margin-left: 30px;
+    }
+
     section {
         padding: 0 8%;
     }
@@ -363,34 +371,20 @@ section {
 /* ---- Tablet Ekranlar ---- */
 @media (max-width: 992px) {
     header {
-        flex-wrap: wrap;
-        padding: 15px 3%;
+        padding: 15px 4%;
     }
     section {
         padding: 70px 3% 60px; /* Üstten padding eklendi */
     }
 
-    .logo{
-      font-size: 24px;
-      flex-basis: 100%; /* Tek satırda yer kaplasın */
-      text-align: left;
-      margin-bottom: 10px;
-    }
-
         /* YENİ EKLEME: Navigasyon linkleri için boşluğu ayarla */
     .navlist {
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-    }
-
-    .navlist li {
-        margin: 0 8px; /* Her link arasına daha az boşluk bırak */
+        padding: 0 10px;
     }
 
     .navlist a {
-        margin-left: 15px; /* Önceki 60px'lik margin'i sıfırla */
-        font-size: 12px; /* Font boyutunu biraz küçült */
+        margin-left: 20px; /* Önceki 60px'lik margin'i sıfırla */
+        font-size: 11px; /* Font boyutunu biraz küçült */
     }
     .nav-right{
       margin-left: auto;
