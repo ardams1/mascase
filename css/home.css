@@ -247,7 +247,7 @@ section {
 
 /* ---- Diğer Bölümler ---- */
 
-.main-photo {
+#main-video {
     margin-top: 70px;
     width: 100%;
     position: relative;
@@ -255,9 +255,9 @@ section {
     justify-content: center;
 }
 
-.main-photo img {
+#main-video video {
     width: 100%;
-    height: 650px;
+    height: 588px;
     object-fit: cover; /* EKLEME: Resmin orantısını bozmadan alanı kaplamasını sağlar */
 }
 
@@ -363,26 +363,40 @@ section {
 /* ---- Tablet Ekranlar ---- */
 @media (max-width: 992px) {
     header {
+        flex-wrap: wrap;
         padding: 15px 3%;
     }
     section {
         padding: 70px 3% 60px; /* Üstten padding eklendi */
     }
 
+    .logo{
+      font-size: 24px;
+      flex-basis: 100%; /* Tek satırda yer kaplasın */
+      text-align: left;
+      margin-bottom: 10px;
+    }
+
         /* YENİ EKLEME: Navigasyon linkleri için boşluğu ayarla */
     .navlist {
-        margin: 0; /* Navlist'in kendi marginini kaldır */
-        flex-grow: 1; /* Esnekliği koru */
-        justify-content: flex-end; /* Navigasyonu sağa hizala */
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
     }
 
     .navlist li {
-        margin: 0 10px; /* Her link arasına daha az boşluk bırak */
+        margin: 5px 10px; /* Her link arasına daha az boşluk bırak */
     }
 
     .navlist a {
         margin-left: 0; /* Önceki 60px'lik margin'i sıfırla */
         font-size: 11px; /* Font boyutunu biraz küçült */
+    }
+    .nav-right{
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
     .phone-text h1 {
         font-size: 45px;
@@ -394,8 +408,8 @@ section {
         width: 350px;
         margin: 0;
     }
-    .main-photo img {
-        height: 450px;
+    #main-video video{
+        height: 300px;
     }
 }
 
@@ -465,7 +479,7 @@ section {
         font-size: 11px;
     }
 
-    .main-photo img {
+    #main-video video  {
         height: auto; /* Yükseklik otomatik ayarlansın */
     }
 
@@ -503,5 +517,9 @@ section {
     .phone-img img{
         width: 100%; /* Ekran genişliğine tam sığsın */
         max-width: 280px;
+    }
+
+    #main-video video{
+        height: 200px;
     }
 }
