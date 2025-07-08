@@ -367,7 +367,7 @@ section {
 }
 
 /* ---- Tablet Ekranlar ---- */
-@media (max-width: 820px) {
+@media (max-width: 992px) {
     header {
         padding: 15px 4%;
     }
@@ -381,7 +381,7 @@ section {
         display: flex;
         flex-direction: row;
         gap: 15px; /* aralıkları biraz azalt */
-        margin: 0 15px;
+        margin: 0 15px !important;
     }
 
     .navlist a {
