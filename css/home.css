@@ -395,33 +395,7 @@ section {
         display: flex;
         align-items: center;
         gap: 12px;
-        margin-left: auto;
-    }
-
-    section {
-        padding: 70px 3% 60px;
-    }
-
-    .icons {
-        display: none;
-    }
-
-    .phone-text h1 {
-        font-size: 45px;
-    }
-
-    .phone-img {
-        text-align: center;
-    }
-
-    .phone-img img {
-        width: 350px;
-        margin: 0;
-    }
-
-    #main-video video {
-        height: 300px;
-    }
+        margin-left: auto;}
 }
 
 /* ---- Mobil Menünün Görünüşü (En Önemli Kısım) ---- */
