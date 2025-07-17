@@ -395,7 +395,8 @@ section {
         display: flex;
         align-items: center;
         gap: 12px;
-        margin-left: auto;}
+        margin-left: auto;
+}
 }
 
 /* ---- Mobil Menünün Görünüşü (En Önemli Kısım) ---- */
@@ -428,6 +429,9 @@ section {
         display: block;
         margin: 1.2rem 0;
         font-size: 15px;
+    }
+    .user-button-container{
+        display: none;
     }
 
     .phone {

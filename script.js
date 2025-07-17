@@ -2,17 +2,20 @@
 // Gerekli HTML elemanlarını seçiyoruz
 let menu = document.querySelector('#menu-icon');
 let navlist = document.querySelector('.navlist');
+let user = document.querySelector('.user-button-container');
 
 // Menü ikonuna tıklandığında menüyü aç/kapat
 menu.onclick = () => {
     menu.classList.toggle('bx-x');        // Hamburger ikonunu X yap
     navlist.classList.toggle('open');     // Menü listesini aç/kapat
+    user.classList.toggle('ac');
 };
 
 // Sayfa kaydırıldığında menüyü otomatik kapat
 window.onscroll = () => {
     menu.classList.remove('bx-x');
     navlist.classList.remove('open');
+    user.classList.remove('ac');
 };
 
 
