@@ -431,7 +431,7 @@ section {
         font-size: 15px;
     }
     .user-button-container{
-        display: none;
+        display: none !important;
     }
 
     .phone {
